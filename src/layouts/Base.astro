@@ -1,12 +1,13 @@
 ---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 import CookieConsent from '../components/CookieConsent.astro';
 import { SITE } from '../config';
 const { title, description = SITE.description, schema = true } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ld = [
-  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/icon.png`, email: SITE.email, sameAs: [SITE.github] },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/icon.png`, email: SITE.email, sameAs: [SITE.github, SITE.discord, ...SITE.social.map(([, url]) => url)] },
   { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url },
   { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Chunkyxel', applicationCategory: 'MultimediaApplication', operatingSystem: 'Windows, macOS, Linux', description: 'Integrated 3D modeling and pixel art editor with Godot and Unity integration.', publisher: { '@type': 'Organization', name: SITE.name } },
 ];
@@ -45,6 +46,7 @@ const ld = [
     <footer>
       <div class="wrap">
         <span>© {new Date().getFullYear()} {SITE.name}</span>
+        <SocialLinks />
         <span><a href="/privacy/">Privacy</a> · <button type="button" onclick="openConsent()">Cookie settings</button></span>
       </div>
     </footer>

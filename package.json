@@ -12,5 +12,8 @@
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource/pixelify-sans": "^5.3.0",
     "astro": "^7.4.2"
+  },
+  "devDependencies": {
+    "simple-icons": "^16.36.0"
   }
 }

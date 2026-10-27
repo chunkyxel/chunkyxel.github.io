@@ -8,6 +8,12 @@ export const SITE = {
   url: 'https://chunkyxel.com',
   email: 'info@chunkyxel.com',
   github: 'https://github.com/chunkyxel',
+  discord: 'https://discord.gg/nsusG8DAgz',
+  social: [
+    ['X', 'https://x.com/Chunkyxel'],
+    ['Instagram', 'https://www.instagram.com/chunkyxel/'],
+    ['Bluesky', 'https://bsky.app/profile/chunkyxel.bsky.social'],
+  ],
   description:
     'Chunkyxel Studio builds tools and games that fuse pixel art with 3D. Meet Chunkyxel, the 3D modeling and pixel art editor with Godot and Unity integration.',
 };

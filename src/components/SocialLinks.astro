@@ -1,0 +1,15 @@
+---
+import { siDiscord, siGithub, siX, siInstagram, siBluesky } from 'simple-icons';
+import { SITE } from '../config';
+const icons = { Discord: siDiscord, GitHub: siGithub, X: siX, Instagram: siInstagram, Bluesky: siBluesky };
+const links = [['Discord', SITE.discord], ['GitHub', SITE.github], ...SITE.social];
+---
+<ul class="social">
+  {links.map(([name, url]) => (
+    <li>
+      <a href={url} rel="me noopener" aria-label={name} title={name}>
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" fill="currentColor"><path d={icons[name].path} /></svg>
+      </a>
+    </li>
+  ))}
+</ul>

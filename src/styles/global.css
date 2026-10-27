@@ -74,3 +74,9 @@ footer button { background: none; border: 0; color: var(--cyan); font: inherit; 
 @media (max-width: 720px) { .hero .wrap { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .btn:hover { transform: none; } }
 .soon { font: 600 .8rem var(--body); background: var(--amber); color: #000; padding: .15rem .5rem; vertical-align: middle; margin-left: .5rem; }
+
+.social { list-style: none; display: flex; gap: .75rem; margin: 1rem 0 0; padding: 0; flex-wrap: wrap; }
+.social a { display: grid; place-items: center; width: 48px; height: 48px; color: var(--text); background: var(--charcoal); border: 2px solid var(--line); box-shadow: 3px 3px 0 var(--line); }
+.social a:hover { color: var(--cyan); border-color: var(--cyan); box-shadow: 3px 3px 0 var(--amber); }
+footer .social { margin: 0; }
+footer .social a { width: 40px; height: 40px; }
