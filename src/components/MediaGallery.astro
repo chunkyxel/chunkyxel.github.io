@@ -1,0 +1,29 @@
+---
+import items from '../content/media.json';
+---
+<div class="media">
+  {items.map((m) => (
+    <figure>
+      {m.type === 'video' ? (
+        <video muted loop playsinline preload="none" poster={m.poster} width={m.width} height={m.height} aria-label={m.alt} data-lazy-video>
+          {m.sources.map((s) => <source src={s.src} type={s.type} />)}
+        </video>
+      ) : (
+        <img src={m.src} alt={m.alt} width={m.width} height={m.height} loading="lazy" decoding="async" />
+      )}
+      <h3>{m.title}</h3>
+      <figcaption>{m.caption}</figcaption>
+    </figure>
+  ))}
+</div>
+<script>
+  // Play videos only while visible, and never for reduced-motion users.
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      const v = e.target as HTMLVideoElement;
+      if (e.isIntersecting && !reduce) v.play().catch(() => {}); else v.pause();
+    }
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-lazy-video]').forEach((v) => io.observe(v));
+</script>

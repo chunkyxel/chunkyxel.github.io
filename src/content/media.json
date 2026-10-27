@@ -1,0 +1,24 @@
+[
+  {
+    "type": "video",
+    "title": "Model and paint in one editor",
+    "caption": "Placeholder: replace with a gameplay or tool capture.",
+    "poster": "/media/placeholder.png",
+    "sources": [
+      { "src": "/media/demo-1.webm", "type": "video/webm" },
+      { "src": "/media/demo-1.mp4", "type": "video/mp4" }
+    ],
+    "width": 1280,
+    "height": 720,
+    "alt": "Chunkyxel editor showing a 3D model with pixel art texture"
+  },
+  {
+    "type": "gif",
+    "title": "Pixel art on a 3D mesh",
+    "caption": "Placeholder: animated WebP or GIF.",
+    "src": "/media/placeholder.png",
+    "width": 1280,
+    "height": 720,
+    "alt": "Animated pixel art texture applied to a 3D model"
+  }
+]

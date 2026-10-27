@@ -1,0 +1,53 @@
+---
+import '../styles/global.css';
+import Analytics from '../components/Analytics.astro';
+import CookieConsent from '../components/CookieConsent.astro';
+import { SITE } from '../config';
+const { title, description = SITE.description, schema = true } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ld = [
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/icon.png`, email: SITE.email, sameAs: [SITE.github] },
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url },
+  { '@context': 'https://schema.org', '@type': 'SoftwareApplication', name: 'Chunkyxel', applicationCategory: 'MultimediaApplication', operatingSystem: 'Windows, macOS, Linux', description: 'Integrated 3D modeling and pixel art editor with Godot and Unity integration.', publisher: { '@type': 'Organization', name: SITE.name } },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0b1a19" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${SITE.url}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(ld)} />}
+    <Analytics />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site">
+      <div class="wrap">
+        <a href="/" aria-label="Chunkyxel Studio home"><img src="/wordmark.svg" alt="Chunkyxel" width="138" height="16" /></a>
+        <nav aria-label="Main"><a href="/#tools">Tools</a><a href="/#games">Games</a><a href="/#showcase">Showcase</a><a href="/#contact">Contact</a></nav>
+      </div>
+    </header>
+    <main id="main"><slot /></main>
+    <footer>
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} {SITE.name}</span>
+        <span><a href="/privacy/">Privacy</a> · <button type="button" onclick="openConsent()">Cookie settings</button></span>
+      </div>
+    </footer>
+    <CookieConsent />
+  </body>
+</html>

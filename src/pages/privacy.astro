@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+---
+<Base title="Privacy Policy | Chunkyxel Studio" schema={false}>
+  <section>
+    <div class="wrap">
+      <h1>Privacy policy</h1>
+      <p>This site is a static site hosted on GitHub Pages. We do not collect personal data ourselves.</p>
+      <h2>Cookies and tracking</h2>
+      <p>If you accept, we load Google Analytics (audience statistics) and Meta Pixel (ads measurement), which set cookies and send usage data to Google and Meta. If you reject, neither loads. You can change your choice any time with "Cookie settings" in the footer.</p>
+      <h2>Contact</h2>
+      <p>To ask about your data, write to <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,16 @@
+<div id="consent" role="dialog" aria-label="Cookie consent" hidden>
+  <p>We use cookies for analytics and ads measurement (Google Analytics, Meta Pixel) only if you accept. See our <a href="/privacy/">privacy policy</a>.</p>
+  <button class="btn" id="consent-accept" type="button">Accept</button>
+  <button class="btn alt" id="consent-reject" type="button">Reject</button>
+</div>
+<script is:inline>
+  (function () {
+    var box = document.getElementById('consent'), key = 'cx-consent';
+    function get() { try { return localStorage.getItem(key); } catch (e) { return null; } }
+    function set(v) { try { localStorage.setItem(key, v); } catch (e) {} box.hidden = true; if (v === 'yes') window.loadTracking(); }
+    if (get() === 'yes') window.loadTracking(); else if (!get()) box.hidden = false;
+    document.getElementById('consent-accept').onclick = function () { set('yes'); };
+    document.getElementById('consent-reject').onclick = function () { set('no'); };
+    window.openConsent = function () { box.hidden = false; };
+  })();
+</script>

@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import MediaGallery from '../components/MediaGallery.astro';
+import { SITE } from '../config';
+const features = [
+  ['3D modeling', 'Extrude faces, join vertices and select by vertex, edge or face, with Blender-style camera and object controls.'],
+  ['Pixel art editing', 'Paint textures with a modern pixel art editor, and generate normal maps from the same canvas.'],
+  ['Solid, X-Ray, Material views', 'Check your model in each view. Materials support alpha.'],
+  ['Undo and redo everywhere', 'Ctrl+Z and Ctrl+Y work on models, textures and every other edit.'],
+  ['Godot and Unity ready', 'Take your pixel art 3D models straight into your engine.'],
+  ['3D, 2D, or both', 'Use it only for modeling, only for pixel art, or combine them for 3D with pixel art textures.'],
+];
+---
+<Base title="Chunkyxel Studio | Pixel Art 3D Tools and Games">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Chunkyxel Studio</h1>
+        <p>We build tools and games where pixel art meets 3D.</p>
+        <a class="btn" href="#tools">Our tools</a>
+        <a class="btn alt" href="#showcase">See it in motion</a>
+      </div>
+      <img class="mark" src="/icon.png" alt="Chunkyxel logo" width="320" height="320" />
+    </div>
+  </section>
+
+  <section id="tools">
+    <div class="wrap">
+      <h2>Tools</h2>
+      <h3>Chunkyxel: model and paint in one editor</h3>
+      <p>A 3D modeling and texturing engine fused with a modern pixel art editor. No more bouncing between separate programs to get a pixel art 3D asset into your game.</p>
+      <div class="grid">
+        {features.map(([t, d]) => <div><h3>{t}</h3><p>{d}</p></div>)}
+      </div>
+    </div>
+  </section>
+
+  <section id="games" class="alt-bg">
+    <div class="wrap">
+      <h2>Games</h2>
+      <div class="grid">
+        <div><h3>Retro Collection <span class="soon">Coming soon</span></h3><p>A collection of retro-style games built with pixel art and 3D in Godot.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="showcase">
+    <div class="wrap">
+      <h2>Showcase</h2>
+      <MediaGallery />
+    </div>
+  </section>
+
+  <section id="about" class="alt-bg">
+    <div class="wrap">
+      <h2>About the studio</h2>
+      <p>Chunkyxel Studio is an independent team developing tools and pixel art 3D games. We build in the open, and our tools come from the problems we hit making games.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p>Questions, press or collaboration? Write to us or follow the work on GitHub.</p>
+      <a class="btn" href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      <a class="btn alt" href={SITE.github} rel="noopener">GitHub</a>
+    </div>
+  </section>
+</Base>
